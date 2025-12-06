@@ -3,7 +3,7 @@ import { Ollama } from "ollama";
 const ollama = new Ollama({
     host: "https://ollama.com",
     headers: {
-        Authorization: "Bearer 3b7b34eb1c2e4b9aa74d9f4d6af7ceef.SIrejJrFgPaHKiFWam19V3MY",
+       Authorization: "Bearer " + process.env.OLLAMA_API_KEY,
     },
 });
 
