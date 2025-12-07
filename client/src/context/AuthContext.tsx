@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         localStorage.setItem('token', newToken);
         localStorage.setItem('userInfo', JSON.stringify(userData));
         // Set cookie for middleware access (expires in 30 days)
-        document.cookie = `token=${newToken}; path=/; max-age=${60 * 60 * 24 * 30}; SameSite=Strict`;
+        document.cookie = `token=${newToken}; path=/; max-age=${60 * 60 * 24 * 30}; SameSite=Lax`;
         setToken(newToken);
         setUser(userData);
         router.push('/dashboard');

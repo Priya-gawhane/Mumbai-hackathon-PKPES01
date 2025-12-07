@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { PlusCircle, BookOpen, Sparkles, GraduationCap, Plus, Clock, MoreVertical, Loader2, ArrowRight, Target, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/context/AuthContext';
+import { Badge } from '@/components/ui/badge';
 
 interface Course {
     _id: string;
@@ -170,9 +171,9 @@ export default function DashboardPage() {
                                         <div className="h-12 w-12 rounded-2xl bg-secondary flex items-center justify-center text-secondary-foreground">
                                             <GraduationCap className="h-6 w-6" />
                                         </div>
-                                        <span className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wide bg-surface-variant text-on-surface-variant border border-transparent`}>
+                                        <Badge>
                                             {course.level}
-                                        </span>
+                                        </Badge>
                                     </div>
                                     <CardTitle className="line-clamp-2 mt-4 text-xl font-normal text-foreground leading-snug">
                                         {course.title}
@@ -185,7 +186,7 @@ export default function DashboardPage() {
                                 </CardContent>
                                 <CardFooter className="pt-2 pb-6 px-6">
                                     <Link href={`/courses/${course._id}`} className="w-full">
-                                        <Button className="w-full rounded-full h-10 font-medium" variant="secondary">
+                                        <Button className="w-full rounded-full h-10 font-medium shadow-sm hover:shadow-md transition-all">
                                             Continue
                                         </Button>
                                     </Link>

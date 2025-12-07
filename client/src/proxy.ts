@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
     const token = request.cookies.get('token')?.value;
     const { pathname } = request.nextUrl;
+    console.log(`Middleware: ${pathname} Token: ${token ? 'Found' : 'Missing'}`);
 
     // Define protected routes
     const protectedRoutes = ['/dashboard', '/courses', '/settings'];
@@ -21,10 +22,11 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(loginUrl);
     }
 
-    // Redirect to dashboard if accessing auth routes with token (already logged in)
-    if (isAuthRoute && token) {
-        return NextResponse.redirect(new URL('/dashboard', request.url));
-    }
+    // Loop Fix: Allow access to auth routes even with token. 
+    // This allows the client to re-login if localStorage is out of sync with cookies.
+    // if (isAuthRoute && token) {
+    //     return NextResponse.redirect(new URL('/dashboard', request.url));
+    // }
 
     return NextResponse.next();
 }

@@ -207,7 +207,7 @@ export default function ModulePage({ params }: { params: Promise<{ id: string; m
             )}
 
             {/* Top Navigation Bar */}
-            {/* <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b">
+            <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b">
                 <div className="container mx-auto max-w-4xl px-6 h-16 flex items-center justify-between">
                     <Link href={`/courses/${resolvedParams.id}`} className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Course
@@ -218,7 +218,7 @@ export default function ModulePage({ params }: { params: Promise<{ id: string; m
                     <div className="flex items-center gap-2">
                     </div>
                 </div>
-            </div> */}
+            </div>
 
             <div className="container mx-auto px-4 md:px-6 py-8 max-w-4xl space-y-8">
                 <motion.div 

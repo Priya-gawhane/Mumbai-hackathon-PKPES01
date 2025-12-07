@@ -2,7 +2,7 @@ import { Ollama } from 'ollama';
 
 const ollama = new Ollama({ host: process.env.OLLAMA_HOST || 'http://localhost:11434' });
 
-const generateResponse = async (prompt, model = 'llama3') => {
+const generateResponse = async (prompt, model = 'qwen3:0.6b') => {
     try {
         const response = await ollama.chat({
             model: model,
